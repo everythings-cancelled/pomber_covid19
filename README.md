@@ -44,7 +44,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply type `PomberCovid19.find_by_region_name(<region name>)`.  E.g. `PomberCovid19.find_by_region_name("Canada")`.  To get the most recent Covid19 data, do `PomberCovid19.find_by_region_name(<region name>).last` 
 
 ## Development
 
