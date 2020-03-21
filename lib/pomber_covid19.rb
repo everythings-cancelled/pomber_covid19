@@ -6,7 +6,7 @@ module PomberCovid19
 
   def self.find_by_region_name(region_name)
     response = HTTParty.get(BASE_URL)
-    raise HttpRequestError if response.status != 200
+    raise HttpRequestError if response.code != 200
 
     covid19_data = response[region_name.capitalize]
     raise RegionNotFoundError if covid19_data.nil?

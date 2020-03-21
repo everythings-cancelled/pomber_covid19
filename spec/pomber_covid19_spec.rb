@@ -2,7 +2,7 @@ RSpec.describe PomberCovid19 do
   describe "#find_by_region_name" do
   context "when the POST request is successful" do
     let(:stubbed_region_covid19_data) { [ { "date"=>"2020-1-22", "confirmed"=>0, "deaths"=>0, "recovered"=>0 } ] }
-    let(:stubbed_response) { OpenStruct.new(status: 200, "Canada" => stubbed_region_covid19_data) }
+    let(:stubbed_response) { OpenStruct.new(code: 200, "Canada" => stubbed_region_covid19_data) }
 
     before do
       allow(HTTParty).to receive(:get).with(described_class::BASE_URL).and_return(stubbed_response)
@@ -22,7 +22,7 @@ RSpec.describe PomberCovid19 do
   end
 
   context "when the post request fails" do
-      let(:stubbed_response) { OpenStruct.new(status: 500) }
+      let(:stubbed_response) { OpenStruct.new(code: 500) }
 
       before do
         allow(HTTParty).to receive(:get).with(described_class::BASE_URL).and_return(stubbed_response)
