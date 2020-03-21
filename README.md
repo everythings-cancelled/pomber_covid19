@@ -1,8 +1,30 @@
 # PomberCovid19
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pomber_covid19`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides an adapter to allow individuals to recieve Covid19 Data from a given country provided by [this repo] (https://github.com/pomber/covid19).  It shoots GET request to the following URL: 
 
-TODO: Delete this and the text above, and describe your gem
+`https://pomber.github.io/covid19/timeseries.json`.  
+
+The Gem then takes in a country/region that you are looking for and returns data in the following format:
+
+```
+[
+    {
+      "date": "2020-1-22",
+      "confirmed": 2,
+      "deaths": 0,
+      "recovered": 0
+    },
+    {
+      "date": "2020-1-23",
+      "confirmed": 3,
+      "deaths": 0,
+      "recovered": 0
+    }
+]
+```
+Where each JSON hash represents the Covid19 data for a given day.
+
+If the request to the Covid19 URL fails, an `HttpRequestError` is raised.  If the region is not found, a `RegionNotFoundError` is raised.
 
 ## Installation
 
@@ -32,7 +54,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pomber_covid19. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/everythings_cancelled/pomber_covid19. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +62,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the PomberCovid19 project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pomber_covid19/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the PomberCovid19 project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the Code of Conduct (which is coming soon).
