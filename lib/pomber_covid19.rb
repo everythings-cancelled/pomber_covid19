@@ -8,7 +8,7 @@ module PomberCovid19
     response = HTTParty.get(BASE_URL)
     raise HttpRequestError if response.code != 200
 
-    covid19_data = response[region_name.capitalize]
+    covid19_data = response[(if region_name=="US" then "US" else region_name.capitalize end)]
     raise RegionNotFoundError if covid19_data.nil?
 
     covid19_data
